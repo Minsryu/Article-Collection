@@ -63,8 +63,14 @@ module.exports = function(app){
 
 			// console.log(dbArticle);
 			// res.send(dbArticle);
+			var data = dbArticle[0];
 
-			db.Saved.create(dbArticle[0]).then(function(){
+			db.Saved.create({
+				title: data.title,
+				link: data.link,
+				summary: data.summary,
+				image: data.image
+			}).then(function(){
 				res.send("complete");
 			});
 		});

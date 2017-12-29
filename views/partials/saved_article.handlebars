@@ -5,16 +5,28 @@
 
 </style>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Panel title</h3>
-    <button class="btn btn-default pull-right">Delete</button>
 
-    <button class="btn btn-default pull-right">Note</button>
-    <div class="clearfix"></div>
-  </div>
-  <div class="panel-body">
-    Panel content
+<div id="home-article">
 
+{{#each articles}}
+
+  <div class="panel panel-default">
+    <div class="panel-heading" href="{{this.link}}" >
+      <h3 class="panel-title">{{this.title}}</h3>
+      <button class="btn btn-default pull-right" id="{{this._id}}">Delete</button>
+
+      <button class="btn btn-default pull-right" id="{{this._id}}">Note</button>
+      <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+      {{this.summary}}
+
+    </div>
   </div>
+
+{{/each}}
+
 </div>
+
+
+<div id="home-article">

@@ -19,7 +19,7 @@ $(document).ready(function() {
 				//pannel title and button
 				var newDiv = $("<div>");
 				newDiv.addClass("panel-heading");
-				newDiv.attr("src",data[i].link);
+				newDiv.attr("href",data[i].link);
 
 
 				var h3 = $("<h2>");
