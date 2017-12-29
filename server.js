@@ -23,9 +23,21 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/article_collection", {
-  useMongoClient: true
-});
+
+var databaseUri = "mongodb://localhost/article_collection";
+
+if (process.env.MONGODB_URI){
+	mongoose.connect(process.env.MONGODB_URI);
+}
+else{
+	mongoose.connect(databaseUri);
+}
+
+
+
+// mongoose.connect("mongodb://localhost/article_collection", {
+//   useMongoClient: true
+// });
 
 
 app.use(express.static("public"));
